@@ -1,25 +1,17 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { Suspense } from 'react'
+import PostsList from '../components/posts-list';
 
-const PostsPage = async () => {
-    const response= await fetch('https://dummyjson.com/posts');
-    const data = await response.json();
+
+const PostsPage = async () => { 
     return (
         <main className='text-center pt-16 px-5'>
             <h1 className="text-4xl md:text-5xl font-bold mb-5">
                All posts
             </h1>
-            <ul>
-                {
-                    data.posts.map((post:any) =>(
-                        <li key={post.id} className='mb-3'>
-                            <Link href={`/posts/${post.id}`}>
-                                {post.title}
-                            </Link>
-                        </li>
-                    ))
-                }
-            </ul>
+            <Suspense fallback="Loading...">
+                <PostsList />
+            </Suspense>
         </main>
     )
 }
