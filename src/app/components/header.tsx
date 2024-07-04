@@ -26,7 +26,7 @@ export default function Header() {
     <header className="flex justify-between items-center py-4 px-7 border-b">
       <Link href="/">
         <Image
-          src=""
+          src="https://bytegrad.com/course-assets/youtube/example-logo.png"
           alt="Logo"
           className="w-[35px] h-[35px]"
           width="35"
