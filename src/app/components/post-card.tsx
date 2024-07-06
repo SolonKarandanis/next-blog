@@ -7,7 +7,7 @@ interface Props{
 
 const PostCard:FC<Props> = ({post}) => {
   return (
-    <li className="mb-3">
+    <li className=" bordermy-4 mb-3 bg-slate-100 p-10">
         <Link href={`/posts/${post.id}`}>{post.title}</Link>
     </li>
   )
