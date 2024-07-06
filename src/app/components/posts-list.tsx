@@ -1,5 +1,6 @@
 import Link from "next/link";
 import prisma from "@/lib/db";
+import PostCard from "./post-card";
 
 export default async function PostsList(){
   const posts = await prisma.post.findMany();
@@ -7,9 +8,7 @@ export default async function PostsList(){
     return (
         <ul>
           {posts.map((post:any) => (
-            <li key={post.id} className="mb-3">
-              <Link href={`/posts/${post.id}`}>{post.title}</Link>
-            </li>
+            <PostCard key={post.id} post={post} />
           ))}
         </ul>
     );
